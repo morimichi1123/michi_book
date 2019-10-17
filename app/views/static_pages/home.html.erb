@@ -1,0 +1,20 @@
+<div class="center jumbotron">
+        <% if logged_in? %>
+          <h1>Book Content</h1>
+
+          <h2>
+
+            <li><%= link_to "Book List", list_path %></li><br><br>
+            <li><%= link_to "Add New Book", new_path %></li>
+
+          </h2>
+        <% else %>
+          <h1>Welcome to the Naoki's Book Store</h1>
+
+          <h2>
+            書籍詳細・検索・更新等ができるよ！
+          </h2>
+
+          <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+        <% end %>
+</div>

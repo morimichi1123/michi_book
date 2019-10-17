@@ -1,0 +1,33 @@
+<% provide(:title,"Add Book Content") %>
+
+  <aside class="col-md-4">
+        <body>
+            <h1>Add Book Content</h1>
+            <div class="container">
+                
+
+                <table border="1" style="border-collapse: collapse">
+                    <tr>
+                        <th>title</th>
+                        <th>author</th>
+                        <th>publisher</th>
+                        <th>genre</th>
+                    </tr>
+
+                    <tr>
+                        <td><%= @book.title %> </td>
+                        <td><%= @book.author %> </td>
+                        <td><%= @book.publisher %> </td>
+                        <td><%= @book.genre %> </td>
+                        <td><% if current_user.admin? %> 
+                            | <%= link_to "delete", @book, method: :delete,  data: { confirm: "You sure?" } %>
+                            | <%= link_to  "edit" , edit_book_path(@book.id)  %>
+                        </td><% end %>
+                    </tr>
+                </table>
+            </div>
+
+
+        </body>
+    
+    </aside>

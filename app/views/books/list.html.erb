@@ -1,0 +1,32 @@
+<% provide(:title,"Book List") %>
+<div class="row">
+  <aside class="col-md-4">
+
+    <body>
+        <div class="container">
+
+        <h3>Book Search</h3>
+        <%= form_tag(list_path, :method => 'get' ) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag 'Search', :title => nil %>
+        <% end %>
+        
+        <%= will_paginate %>
+        <table border="1" style="border-collapse: collapse">
+        <tr>
+            <th>id</th>
+            <th>title</th>
+        </tr>
+        <% @books.each do |book|%>
+            <%= render book %>
+        <% end %>
+        </table>
+        
+        <%= will_paginate %>
+        </div>
+   
+        
+    </body>
+    
+  </aside>
+</div>
